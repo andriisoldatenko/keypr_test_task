@@ -31,4 +31,24 @@ isort:
 	isort -rc -m 3 pms
 	isort -rc -m 3 reservations
 
+clean:
+	rm -rf `find . -name __pycache__`
+	rm -f `find . -type f -name '*.py[co]' `
+	rm -f `find . -type f -name '*~' `
+	rm -f `find . -type f -name '.*~' `
+	rm -f `find . -type f -name '@*' `
+	rm -f `find . -type f -name '#*#' `
+	rm -f `find . -type f -name '*.orig' `
+	rm -f `find . -type f -name '*.rej' `
+	rm -f .coverage
+	rm -rf coverage
+	rm -rf build
+	rm -rf cover
+
+coverage:
+	py.test --cov-report term-missing --cov
+
+test:
+	pytest
+
 build: install migrate collectstatic

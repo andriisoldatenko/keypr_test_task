@@ -5,10 +5,10 @@ omit = */migrations/*
 
 [report]
 omit =
-    .env/*
     */migrations/*
-    */*test*.py
     */admin.py
     */urls.py
     manage.py
+    */settings/*
     */features/*
+    */tests/*
