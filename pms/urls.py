@@ -16,6 +16,20 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from reservations.api.views import (
+    ReservationListCreateAPIView,
+    ReservationRetrieveUpdateDestroyAPIView
+)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+]
+
+# API urls
+urlpatterns += [
+    url(r'^api/reservations/$', ReservationListCreateAPIView.as_view(),
+        name='create-reservation'),
+    url(r'^api/reservation/(?P<pk>[0-9]+)/$',
+        ReservationRetrieveUpdateDestroyAPIView.as_view(),
+        name='retrieve-update-delete-reservation'),
 ]

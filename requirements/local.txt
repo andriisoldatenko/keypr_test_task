@@ -1,0 +1,4 @@
+-r base.txt
+isort
+flake8
+ipdb
